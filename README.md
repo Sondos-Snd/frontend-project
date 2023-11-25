@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## APIs
+
+| Request | METHOD     |  URI | Description        |
+| :-------- | :------- | :----- |:-------------------|
+| `POST` | `addMatch` | `http://localhost:3000/v1/api/matches` | Add match          |
+| `PUT` | `updateMatch` | `http://localhost:3000/v1/api/matches` | Update match       |
+| `DELETE` | `getAllMatches` | `http://localhost:3000/v1/api/matches` | Get all matches    |
+| `GET` | `getMatchById` | `http://localhost:3000/v1/api/matches` | Get match by Id    |
+| `GET` | `deleteMatchById` | `http://localhost:3000/v1/api/matches` | Delete match by Id |
+
+
