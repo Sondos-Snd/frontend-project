@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatchModel } from 'src/app/model/match-model';
 import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
@@ -9,12 +10,12 @@ import { MatchesService } from 'src/app/services/matches.service';
 export class MatchesComponent implements OnInit {
 
   term:any
-  matches: any =[]
+  matches: Array<MatchModel> =[]
   constructor(private mService:MatchesService) { }
 
   ngOnInit(): void {
     // this.matches= JSON.parse(localStorage.getItem('matches') ||'[]')
-    this.mService.getAllMatches().subscribe((res)=>{
+    this.mService.getAllMatchesBis().subscribe((res)=>{
       this.matches=res
     })
   }

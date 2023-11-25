@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MatchModel } from "src/app/model/match-model";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +21,10 @@ export class MatchesService {
     return  this.bostagi.get<{data:any}>(this.matchUrl )
   }
 
+  //reactive programming
+  public getAllMatchesBis():Observable<Array<MatchModel>> {
+    return this.bostagi.get<Array<MatchModel>>(this.matchUrl,{params:{strategy:'LAZY'}} )
+  }
 
   getMatchById(id:any){
     return  this.bostagi.get<{data:any}>(`${this.matchUrl}/${id}`)

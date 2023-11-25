@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
+import { MatchModel } from 'src/app/model/match-model';
 import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { MatchesService } from 'src/app/services/matches.service';
   styleUrls: ['./matches-table.component.css']
 })
 export class MatchesTableComponent implements OnInit {
-  matches:any=[]
+  matches:Array<MatchModel>=[]
   constructor( private router:Router , private mService:MatchesService ) { }
   ngOnInit(): void {
     this.getAllMatches()
@@ -17,7 +18,7 @@ export class MatchesTableComponent implements OnInit {
   getAllMatches(){   
     // this.matches= JSON.parse( localStorage.getItem('matches') || '[]') 
     
-    this.mService.getAllMatches().subscribe((result)=>{
+    this.mService.getAllMatchesBis().subscribe((result)=>{
 
       this.matches=result
 
