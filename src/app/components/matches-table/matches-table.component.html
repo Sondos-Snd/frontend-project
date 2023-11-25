@@ -1,0 +1,44 @@
+
+<app-banner [title]="'Table Matches'" ></app-banner>
+
+
+
+  
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+         
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">team One</th>
+                    <th scope="col">Team Two</th>
+                    <th scope="col">Score One</th>
+                    <th scope="col">Score Two</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let m of matches">
+                    <th scope="row">{{m.id}}</th>
+                    <td>{{m.teamOne}}</td>
+                    <td>{{m.teamTwo}}</td>
+                    <td>{{m.scoreOne}}</td>
+                    <td>{{m.scoreTwo}}</td>
+                    <td>
+
+                        <button  class="btn btn-danger" (click)="deleteMatch(m.id)"> delete</button>
+                        <button  class="btn btn-info ml-2"(click)="navigateTo('/edit-match/',m.id)" > Edit</button>
+                        <button  class="btn btn-success ml-2" (click)="navigateTo('/match-detail/',m.id)"> Detail</button>
+                    </td>
+                    
+                  </tr>
+                 
+                </tbody>
+              </table>
+        </div>
+      
+      </div>
+    </div>
+  </div>
