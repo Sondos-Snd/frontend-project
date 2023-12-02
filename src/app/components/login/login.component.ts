@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     }
+
+    if (this.isLoggedIn==true){
+      this.router.navigate(['']);
+    }
   }
 
   onSubmit(): void {
@@ -41,7 +45,7 @@ export class LoginComponent implements OnInit {
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().roles;
-          this.router.navigate([``]);
+          window.location.reload();
         },
         err => {
           this.errorMessage = err.error.message;

@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {PlayerModel} from '../../models/player-model';
+import { TeamModel } from 'src/app/models/team-model';
 
 @Component({
   selector: 'app-players-table',
@@ -16,9 +17,9 @@ export class PlayersTableComponent implements OnInit {
   // METHODE qui s'execute automatiqument des l'appel du component
   ngOnInit() {
     this.players = [
-      { id: 1, name: 'Messi', nbr: 10, position: 'ATK',team: 'teamOne' },
-      { id: 2, name: 'Ronaldo', nbr: 7, position: 'ATK',team: 'teamTwo' },
-      { id: 3, name: 'Xavi', nbr: 6, position: 'ATK',team: 'teamOne' }
+      { id: 1, name: "Messi", nbr: 10, position: "ATK",team:"test" },
+      { id: 2, name: "Ronaldo", nbr: 7, position: "ATK",team:"test"  },
+      { id: 3, name: "Xavi", nbr: 6, position: "ATK" ,team:"test" }
     ];
   }
 

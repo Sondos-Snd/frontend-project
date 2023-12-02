@@ -6,12 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class PlayersService {
 
-  playerUrl = "http://localhost:8080/players"
+  playerUrl = "http://localhost:3002/v1/api/players"
   constructor(private bostagi: HttpClient) { }
 
 
-  addPlayer() {
-    return this.bostagi.post(this.playerUrl, { player: "hello" })
+  addPlayer(player:any) {    
+    return this.bostagi.post(this.playerUrl, {player:player,team:player.team});
   }
+
+  
 
 }
