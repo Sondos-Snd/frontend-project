@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-  constructor(private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService,private router: Router) { }
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -33,9 +34,9 @@ export class SignupComponent implements OnInit {
   onSubmit(): void {
     this.authService.register(this.signupForm.controls['firstName'].value,this.signupForm.controls['email'].value,this.signupForm.controls['pwd'].value).subscribe(
         data => {
-          console.log(data);
           this.isSuccessful = true;
           this.isSignUpFailed = false;
+          this.router.navigate(['login']);
         },
         err => {
           this.errorMessage = err.error.message;
