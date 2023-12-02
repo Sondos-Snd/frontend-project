@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatchModel } from 'src/app/model/match-model';
-import { MatchesService } from 'src/app/services/matches.service';
+import { UserService } from '../../_services/user.service';
+
 
 @Component({
   selector: 'app-matches',
@@ -9,20 +9,28 @@ import { MatchesService } from 'src/app/services/matches.service';
 })
 export class MatchesComponent implements OnInit {
 
-  term:any
-  matches: Array<MatchModel> =[]
-  constructor(private mService:MatchesService) { }
+  matches: any = [];
+  content?: string;
 
-  ngOnInit(): void {
-    // this.matches= JSON.parse(localStorage.getItem('matches') ||'[]')
-    this.mService.getAllMatchesBis().subscribe((res)=>{
-      this.matches=res
-    })
-  }
+  constructor(private userService: UserService) { }
 
-  
-  deleteMatch(id:any){
-   console.log("hereeeee into parent",id);
+
+  ngOnInit() {
+    this.matches = [
+      { id: 1, scoreOne: 2, scoreTwo: 1, teamOne: "FCB", teamTwo: "RMD" },
+      { id: 2, scoreOne: 0, scoreTwo: 0, teamOne: "CA", teamTwo: "EST" },
+      { id: 3, scoreOne: 3, scoreTwo: 1, teamOne: "SEV", teamTwo: "ATM" },
+      { id: 4, scoreOne: 1, scoreTwo: 4, teamOne: "CIT", teamTwo: "LIV" }
+    ];
+
+    this.userService.getUserBoard().subscribe(
+        data => {
+          this.content = data;
+        },
+        err => {
+          this.content = JSON.parse(err.error).message;
+        }
+    );
   }
 
 }

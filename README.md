@@ -30,10 +30,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 | Request | METHOD     |  URI | Description        |
 | :-------- | :------- | :----- |:-------------------|
-| `POST` | `addMatch` | `http://localhost:3000/v1/api/matches` | Add match          |
-| `PUT` | `updateMatch` | `http://localhost:3000/v1/api/matches` | Update match       |
-| `DELETE` | `getAllMatches` | `http://localhost:3000/v1/api/matches` | Get all matches    |
-| `GET` | `getMatchById` | `http://localhost:3000/v1/api/matches` | Get match by Id    |
-| `GET` | `deleteMatchById` | `http://localhost:3000/v1/api/matches` | Delete match by Id |
+| `POST` | `addMatch` | `http://localhost:3002/v1/api/matches` | Add match          |
+| `PUT` | `updateMatch` | `http://localhost:3002/v1/api/matches` | Update match       |
+| `DELETE` | `getAllMatches` | `http://localhost:3002/v1/api/matches` | Get all matches    |
+| `GET` | `getMatchById` | `http://localhost:3002/v1/api/matches` | Get match by Id    |
+| `GET` | `deleteMatchById` | `http://localhost:3002/v1/api/matches` | Delete match by Id |
 
 

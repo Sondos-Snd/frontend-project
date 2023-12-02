@@ -8,7 +8,7 @@ import { MatchModel } from "src/app/model/match-model";
 })
 export class MatchesService {
 
-  matchUrl="http://localhost:3000/api/matches"
+  matchUrl="http://localhost:3002/api/matches"
 
   constructor(private bostagi:HttpClient) { }
 
@@ -31,7 +31,7 @@ export class MatchesService {
   }
 
   deleteMatch(id:any){
-    // "http://localhost:3000/matches/1" this.matchUrl + "/" + id
+    // "http://localhost:3002/matches/1" this.matchUrl + "/" + id
     return  this.bostagi.delete<{message:any}>(`${this.matchUrl}/${id}` )
 
   }

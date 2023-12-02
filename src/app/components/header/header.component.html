@@ -20,16 +20,38 @@
         <div class="ml-auto">
           <nav class="site-navigation position-relative text-right" role="navigation">
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li class="active"><a routerLink="" class="nav-link">Home</a></li>
-              <li><a routerLink="add-match" class="nav-link">Add Match</a></li>
-              <li><a routerLink="matches-table" class="nav-link">Table Matches</a></li>
-              <li><a routerLink="matches" class="nav-link">Matches</a></li>
-              <li><a routerLink="contact" class="nav-link">Contact</a></li>
-              <li><a routerLink="signup" class="nav-link">Signup</a></li>
+              <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+              <li><a *ngIf="isLoggedIn" routerLink="matches" class="nav-link">Matches</a></li>
+              <li><a *ngIf="isLoggedIn" routerLink="players" class="nav-link">Players</a></li>
+              <li>
+                <div class="dropdown" *ngIf="showAdminBoard">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Admin
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" routerLink="addTeam">Add Team</a>
+                    <a class="dropdown-item" routerLink="addPlayer">Add Player</a>
+                    <a class="dropdown-item" routerLink="addMatch">Add Match</a>
+                    <a class="dropdown-item" routerLink="admin">Dashboard</a>
+                  </div>
+                </div>
+              </li>
+              <ng-container *ngIf="!isLoggedIn">
+                <li class="nav-item">
+                  <a href="/login" class="nav-link" routerLink="login">Login</a>
+                </li>
+                  <li class="nav-item">
+                    <a href="/register" class="nav-link" routerLink="signup">SignUp</a>
+                  </li>
+                </ng-container>
+              <li class="nav-item" *ngIf="isLoggedIn">
+                <a href class="nav-link" (click)="logout()">LogOut</a>
+              </li>
             </ul>
           </nav>
 
-          <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+          <a href="#"
+            class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
               class="icon-menu h3 text-white"></span></a>
         </div>
       </div>

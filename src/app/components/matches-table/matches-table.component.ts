@@ -1,7 +1,6 @@
+import { MatchService } from './../../services/match.service';
 import { Component, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
-import { MatchModel } from 'src/app/model/match-model';
-import { MatchesService } from 'src/app/services/matches.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-matches-table',
@@ -9,47 +8,27 @@ import { MatchesService } from 'src/app/services/matches.service';
   styleUrls: ['./matches-table.component.css']
 })
 export class MatchesTableComponent implements OnInit {
-  matches:Array<MatchModel>=[]
-  constructor( private router:Router , private mService:MatchesService ) { }
-  ngOnInit(): void {
-    this.getAllMatches()
+
+  matches: any = [];
+  constructor(
+    private router: Router,
+    private matchService: MatchService) { }
+  ngOnInit() {
+    this.matchService.getAllMatches().subscribe(
+      (data) => {
+        console.log("Here data ", data);
+        this.matches = data;
+      }
+    );
+
   }
 
-  getAllMatches(){   
-    // this.matches= JSON.parse( localStorage.getItem('matches') || '[]') 
-    
-    this.mService.getAllMatchesBis().subscribe((result)=>{
-
-      this.matches=result
-
-    })
-  }
-  navigateTo(path:any, id:any){
-
-    this.router.navigate([path+id])
+  goToDisplay(x: number) {
+    this.router.navigate([`matchInfo/${x}`]);
   }
 
-
-
-
-  deleteMatch(id:any){
-    // for (let i = 0; i < this.matches.length; i++) {
-    //   if (this.matches[i].id === id) {
-    //     this.matches.splice(i , 1)
-    //     break      
-    //   }   
-    // }
-    // localStorage.setItem("matches",JSON.stringify(this.matches))   
-
-    this.mService.deleteMatch(id).subscribe(()=>{
-      console.log("deletedddddd");
-
-      this.getAllMatches()
-
-      
-    })
+  goToEdit(x: number) {
+    this.router.navigate([`editMatch/${x}`]);
   }
-
-
 
 }

@@ -1,0 +1,25 @@
+{
+  "matches": [
+    {
+      "id": 1,
+      "scoreOne": 2,
+      "scoreTwo": 1,
+      "teamOne": "FCB",
+      "teamTwo": "RMD"
+    },
+    {
+      "id": 2,
+      "scoreOne": 0,
+      "scoreTwo": 0,
+      "teamOne": "CA",
+      "teamTwo": "EST"
+    },
+    {
+      "id": 3,
+      "scoreOne": 3,
+      "scoreTwo": 1,
+      "teamOne": "SEV",
+      "teamTwo": "ATM"
+    }
+  ]
+}

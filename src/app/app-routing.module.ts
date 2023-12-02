@@ -1,27 +1,34 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { AddMatchComponent } from './components/add-match/add-match.component';
-import { MatchesTableComponent } from './components/matches-table/matches-table.component';
-import { MatchDetailComponent } from './components/match-detail/match-detail.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { PlayerFormComponent } from './components/player-form/player-form.component';
+import { UpdateMatchComponent } from './components/update-match/update-match.component';
+import { MatchInfoComponent } from './components/match-info/match-info.component';
 import { MatchesComponent } from './components/matches/matches.component';
-import { BlogsComponent } from './components/blogs/blogs.component';
+import { PlayersComponent } from './components/players/players.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AddTeamComponent } from './components/add-team/add-team.component';
+import { AddPlayerComponent } from './components/add-player/add-player.component';
+import { AddMatchComponent } from './components/add-match/add-match.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
 
 const routes: Routes = [
-  { path: "", component: HomeComponent }, // http://localhost:4200
-  { path: "contact", component: ContactComponent }, // http://localhost:4200/contact
-  { path: "add-match", component: AddMatchComponent },  // here into ADD 
-  { path: "edit-match/:id", component: AddMatchComponent }, // here into Edit 
-  { path: "matches-table", component: MatchesTableComponent }, 
-  { path: "match-detail/:matchId", component: MatchDetailComponent }, 
-  { path: "signup", component: SignupComponent }, 
-  { path: "matches", component: MatchesComponent }, 
-  { path: "blogs", component: BlogsComponent }, 
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'addMatch', component: AddMatchComponent },
+  // { path: 'addPlayer', component: AddPlayerComponent },
+  { path: 'addTeam', component: AddTeamComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'players', component: PlayersComponent },
+  { path: 'matches', component: MatchesComponent },
+  { path: 'matchInfo/:id', component: MatchInfoComponent },
+  { path: 'editMatch/:id', component: UpdateMatchComponent },
+  { path: 'addPlayer', component: PlayerFormComponent },
+  { path: 'editPlayer/:id', component: PlayerFormComponent }
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
